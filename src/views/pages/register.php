@@ -1,3 +1,5 @@
+<?php $page_title = 'register'; ob_start(); ?>
+<?php include(__DIR__."/../partials/navBar.php"); ?>
 <div class="register-body">
     <div class="register">
 
@@ -68,3 +70,5 @@
         </div>
     </div>
 </div>
+<?php include(__DIR__."/../partials/footer.php"); ?>
+<?php $content = ob_get_clean(); ?>
