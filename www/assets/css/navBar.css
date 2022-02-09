@@ -1,0 +1,32 @@
+.nav {
+    display: none;
+}
+
+.nav-header-logo {
+    display: none;
+}
+
+.nav-header-btn {
+    display: none;
+}
+
+.nav-logo-container {
+    display: none;
+}
+
+.nav-links-container {
+    display: none;
+}
+
+.nav-logo {
+    display: none;
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-links > a {
+    display: none;
+    text-decoration: none;
+}

@@ -1,0 +1,175 @@
+/*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    These two div manage the sign up and sign-in mixed form position.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+.register-body {
+    display: none;
+}
+
+.register {
+    display: none;
+}
+
+
+/*******************************************
+
+    This block manage the log-in formulaire.
+
+*******************************************/
+
+.register-log-in {
+    display: none;
+}
+
+.log-in {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the user field inside the log-in form.
+    -----*/
+
+.log-in-user-docker {
+    display: none;
+}
+
+.log-in-user-container {
+    display: none;
+}
+
+.log-in-user {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the password field inside the log-in form.
+    -----*/
+
+.log-in-pass-docker {
+    display: none;
+}
+
+.log-in-pass-container {
+    display: none;
+}
+
+.log-in-pass {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the button field inside the log-in form.
+    -----*/
+
+.log-in-btn-docker {
+    display: none;
+}
+
+.log-in-btn-container {
+    display: none;
+}
+
+.log-in-btn {
+    display: none;
+}
+
+
+/********************************************
+
+    This block manage the sign-in formulaire.
+
+********************************************/
+
+.register-sign-in {
+    display: none;
+}
+
+.sign-in {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the pseudo field inside the sign-in form.
+    -----*/
+
+.sign-in-pseudo-docker {
+    display: none;
+}
+
+.sign-in-pseudo-container {
+    display: none;
+}
+
+.sign-in-pseudo {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the email field inside the sign-in form.
+    -----*/
+
+.sign-in-email-docker {
+    display: none;
+}
+
+.sign-in-email-container {
+    display: none;
+}
+
+.sign-in-email {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the password and password-verif field inside the sign-in form.
+    -----*/
+
+.sign-in-pass-docker {
+    display: none;
+}
+
+.sign-in-pass-container {
+    display: none;
+}
+
+.sign-in-pass {
+    display: none;
+}
+
+    /*----- 
+        This inside-block manage the button field inside the sign-in form.
+    -----*/
+
+.sign-in-btn-docker {
+    display: none;
+}
+
+.sign-in-btn-container {
+    display: none;
+}
+
+.sign-in-btn {
+    display: none;
+}
+
+
+/***************************************************************************
+
+    The div switching between the mode log-in and sign-up.
+    It should be forward in z-index, or make the two form behind in z-index.
+
+***************************************************************************/
+
+.register-switch {
+    display: none;
+}
+
+.switch-btn-container {
+    display: none;
+}
+
+.switch-btn {
+    display: none;
+}
