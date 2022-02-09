@@ -61,7 +61,7 @@
             </form>
         </div>
 
-        </div class="register-switch">
+        <div class="register-switch">
             <div class="switch-btn-container">
                 <button class="switch-btn" value="NONE">
             </div>
