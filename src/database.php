@@ -4,79 +4,79 @@ class Image {
 }
 
 class User {
-	private $id;
-	private $pseudo;
-	private $email;
-	private $pass;
+    private $id;
+    private $pseudo;
+    private $email;
+    private $pass;
 
-	function __construct($id, $pseudo, $email, $pass) {
-		$this -> id = $id;
-		$this -> pseudo = $pseudo;
-		$this -> email = $email;
-		$this -> pass = $pass;
-	}
+    function __construct($id, $pseudo, $email, $pass) {
+        $this -> id = $id;
+        $this -> pseudo = $pseudo;
+        $this -> email = $email;
+        $this -> pass = $pass;
+    }
 
-	function getId() {
-		return $this -> id;
-	}
+    function getId() {
+        return $this -> id;
+    }
 
-	function getValues() {
-		return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'pass' => $this -> pass);
-	}
+    function getValues() {
+        return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'pass' => $this -> pass);
+    }
 
-	function name() {
-		return strtolower(get_class($this) . "s");
-	}
+    function name() {
+        return strtolower(get_class($this) . "s");
+    }
 }
 
 class BDD {
-	private $host;
-	private $port;
-	private $bdname;
-	private $user;
-	private $pass;
-	private $db;
+    private $host;
+    private $port;
+    private $bdname;
+    private $user;
+    private $pass;
+    private $db;
 
-	function __construct($host, $port, $bdname, $user, $pass) {
-		$this -> host = $host;
-		$this -> port = $port;
-		$this -> bdname = $bdname;
-		$this -> user = $user;
-		$this -> pass = $pass;
-	}
+    function __construct($host, $port, $bdname, $user, $pass) {
+        $this -> host = $host;
+        $this -> port = $port;
+        $this -> bdname = $bdname;
+        $this -> user = $user;
+        $this -> pass = $pass;
+    }
 
-	function connect() {
-		$dsn = 'mysql:host=' . $this -> host . ';dbname=' . $this -> bdname . ';port=' . $this -> port . '';
-		$this -> db = new PDO($dsn, $this -> user, $this -> pass);
-	}
+    function connect() {
+        $dsn = 'mysql:host=' . $this -> host . ';dbname=' . $this -> bdname . ';port=' . $this -> port . '';
+        $this -> db = new PDO($dsn, $this -> user, $this -> pass);
+    }
 
-	function disconnect() {
-		$this -> db = null;
-	}
+    function disconnect() {
+        $this -> db = null;
+    }
 
-	function insert($obj) {
-		$str = "";
-		$id = $obj -> getId();
-		$values = $obj -> getValues();
-		$name = $obj -> name();
+    function insert($obj) {
+        $str = "";
+        $id = $obj -> getId();
+        $values = $obj -> getValues();
+        $name = $obj -> name();
 
-		foreach($values as $el) { $str .= ", '".$el."'"; }
-		$query = "INSERT INTO ".$name." VALUES (".$id.$str.")";
-		$this -> db -> query($query);
-	}
-
-    //To do
-	function update($query) {
-		foreach($this -> db -> query($query) as $row) {
-			print_r($row);
-			print_r("Update");
-		}
-	}
+        foreach($values as $el) { $str .= ", '".$el."'"; }
+        $query = "INSERT INTO ".$name." VALUES (".$id.$str.")";
+        $this -> db -> query($query);
+    }
 
     //To do
-	function select($query) {
-		return $this -> db -> query($query);
-	}
+    function update($query) {
+        foreach($this -> db -> query($query) as $row) {
+            print_r($row);
+            print_r("Update");
+        }
+    }
+
+    //To do
+    function select($query) {
+        return $this -> db -> query($query);
+    }
 }
 
 /*--- How to use ---
