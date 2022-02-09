@@ -1,5 +1,7 @@
 <?php $page_title = 'ERROR 404'; ob_start(); ?>
-<div class="fill-body">
-    <h1>ERROR 404</h1>
-</div>
+<main>
+    <div class="error-not-found">
+        <h1 class="error404">ERROR 404</h1>
+    </div>
+<main>
 <?php $content = ob_get_clean(); ?>
