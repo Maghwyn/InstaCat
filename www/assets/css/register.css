@@ -5,11 +5,24 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
 .register-body {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: rgb(102, 95, 114);
 }
 
 .register {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    height: 50%;
+    width: 40%;
+
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    background: rgb(123, 110, 145);
 }
 
 
@@ -20,11 +33,20 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 *******************************************/
 
 .register-log-in {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .log-in {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60%;
+    height: 50%;
 }
 
     /*----- 
@@ -32,31 +54,31 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .log-in-user-docker {
-    display: none;
+    display: visible;
 }
 
 .log-in-user-container {
-    display: none;
+    display: visible;
 }
 
 .log-in-user {
-    display: none;
+    display: visible;
 }
 
     /*----- 
         This inside-block manage the password field inside the log-in form.
     -----*/
 
-.log-in-pass-docker {
-    display: none;
+.log-in-password-docker {
+    display: visible;
 }
 
-.log-in-pass-container {
-    display: none;
+.log-in-password-container {
+    display: visible;
 }
 
-.log-in-pass {
-    display: none;
+.log-in-password {
+    display: visible;
 }
 
     /*----- 
@@ -64,15 +86,23 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .log-in-btn-docker {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .log-in-btn-container {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .log-in-btn {
-    display: none;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -83,11 +113,20 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 ********************************************/
 
 .register-sign-in {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .sign-in {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60%;
+    height: 50%;
 }
 
     /*----- 
@@ -95,15 +134,15 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-pseudo-docker {
-    display: none;
+    display: visible;
 }
 
 .sign-in-pseudo-container {
-    display: none;
+    display: visible;
 }
 
 .sign-in-pseudo {
-    display: none;
+    display: visible;
 }
 
     /*----- 
@@ -111,31 +150,33 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-email-docker {
-    display: none;
+    display: visible;
 }
 
 .sign-in-email-container {
-    display: none;
+    display: visible;
 }
 
 .sign-in-email {
-    display: none;
+    display: visible;
 }
 
     /*----- 
         This inside-block manage the password and password-verif field inside the sign-in form.
     -----*/
 
-.sign-in-pass-docker {
-    display: none;
+.sign-in-password-docker {
+    display: visible;
 }
 
-.sign-in-pass-container {
-    display: none;
+.sign-in-password-container {
+    display: visible;
 }
 
-.sign-in-pass {
-    display: none;
+.sign-in-password {
+    display: visible;
+    /* border: none;
+    background: none; */
 }
 
     /*----- 
@@ -143,15 +184,23 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-btn-docker {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .sign-in-btn-container {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .sign-in-btn {
-    display: none;
+    width: 100%;
+    height: 100%;
 }
 
 

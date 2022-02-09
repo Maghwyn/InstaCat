@@ -1,7 +1,7 @@
 <div class="nav">
     <div class="nav-header-logo">
         <div class="nav-logo-container">
-            <img class="nav-logo"></img>
+            <img class="nav-logo" src="../../src/img/InstaCatLogo.png"></img>
         </div>
     </div>
 

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%; 
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    /* background-color: ; */
+}
+
+.error-not-found {
+    width: 100%;
+    background-color: rgb(53, 53, 53);
+}
+
+.error404 {
+    color: white;
+}
