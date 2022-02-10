@@ -1,7 +1,7 @@
 <?php $page_title = 'account'; ob_start(); ?>
 <?php 
-// setcookie("user", "", time() - (86400 * 31), "/", true, true);
-// var_dump($_COOKIE); //Debug
+setcookie("user", "", time() - (86400 * 31), "/", false, false);
+var_dump($_COOKIE); //Debug
 
 if(isset($_COOKIE['user']) && !isset($_SESSION["login"])) {
     // var_dump($_COOKIE['user']);

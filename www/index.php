@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$existing_pages = ['register', 'profil', 'account'];
+$existing_pages = ['register', 'profil', 'account', 'fill'];
 
 $page="register";
 
@@ -12,4 +12,3 @@ include __DIR__ . "/../src/views/pages/$page.php";
 include __DIR__ . "/../src/views/partials/template.php";
 
 session_destroy();
-?>

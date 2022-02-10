@@ -1,0 +1,86 @@
+.profil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profil-docker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.profil-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profil-picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.profil-picture {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 300px;
+    border: 4px solid #fff;
+}
+
+.profil-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.profil-description {
+    text-align: center;
+    margin-top: 25px;
+    margin: 25px 40px;
+    color: #999;
+    font-size: 11pt;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.profil-gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+    width: 100%;
+}
+
+.profil-gallery {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.gallery-column {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.gallery-link {
+    height: min-content;
+}
+
+.gallery-thumb {
+    margin: 10px 10px;
+}

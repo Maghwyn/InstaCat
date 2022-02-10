@@ -4,14 +4,13 @@
             <img class="nav-logo" src="../../src/img/InstaCatLogo.png"></img>
         </div>
     </div>
-
     <div class="nav-header-btn">
-        <!-- <div class="nav-links-container">
+        <div class="nav-links-container">
             <div class="nav-links">
-                <a href="index.php?p=home"><span>Home</span></a>
-                <a href="index.php?p=contact"><span>Contact</span></a>
-                <a href="index.php?p=log"><span>Login</span></a>
+                <a href="index.php?p=profil"><span>Profil</span></a>
+                <a href="index.php?p=account"><span>Account</span></a>
+                <a href="#"><span>Log out</span></a>
             </div>
-        </div> -->
+        </div>
     </div>
 </div>
