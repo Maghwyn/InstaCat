@@ -1,4 +1,4 @@
-<?php $page_title = 'profil'; /*$user_identifier = $_GET['user_identifier'];*/ ob_start(); ?>
+<?php $page_title = 'profil'; ob_start(); if(!isset($_SESSION)) session_start(); ?>
 <?php if(!isset($_SESSION["token"])) header("Location: http://127.0.0.1:12001/www/index.php?p=register");?>
 
 <?php include(__DIR__ . "/../partials/navBar.php"); ?>

@@ -30,6 +30,7 @@ function LogIn()
         session_unset();
         $_SESSION["token"] = "logged";
         $_SESSION["username"] = $user["pseudo"];
+        session_write_close();
         header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
         exit(); 
     }else {
