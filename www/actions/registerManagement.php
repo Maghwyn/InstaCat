@@ -56,6 +56,21 @@ function SingIn() {
     }else $are_fields_valid = false;
 
 
+    if(empty($pseudo) || empty($email) || empty($password)){
+        $are_fields_valid = false;
+    }
+    else if(strlen($pseudo)<= 3 && strlen($password) <=3){
+        $are_fields_valid = false;
+    }else if($password_verified != $password) {
+        $are_fields_valid = false;
+    }
+    else{
+        if(preg_match(regex, $rgx_pseudo) && preg_match(regex, $email)&& preg_match(regex, $password)){
+            $are_fields_valid = true;
+        }
+        $are_fields_valid = true;
+    }
+    
     if($are_fields_valid) {
         include_once(__DIR__."../../../src/config/config.php");
         include_once(__DIR__."../../../src/database.php");
