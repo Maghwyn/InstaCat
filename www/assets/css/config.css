@@ -22,7 +22,6 @@ main {
     display: flex;
     flex-grow: 1;
     flex-shrink: 0;
-    /* background-color: ; */
 }
 
 .error-not-found {
