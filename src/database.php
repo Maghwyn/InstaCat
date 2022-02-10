@@ -1,6 +1,63 @@
 <?php 
 class Image {
-    //To do
+    private $Id_image;
+    private $userId_Img;
+    private $img_Type;
+    private $like_Img;
+
+    function checkImg($imageProps) {
+        $errors= array();
+        $imgName =  $imageProps['name'];
+        $imgSize = $imageProps['size'];
+        $imgTemp = $imageProps['temp'];
+        $imgType = $imageProps['type'];
+        $extension = explode('.',$imageProps['name']);
+        $imgExt = strtolower(end($extension));
+        $extensions= array("jpeg","jpg","png");
+
+        if(in_array($imgExt,$extensions)=== false){
+            $errors[]="Choose a JPEG or PNG file.";
+        }
+        if($imgSize > 2000000){
+            $errors[]='Size max 2 MB';
+        }
+    }
+
+    function createFileImage($imageProps) {
+        $errors = $this->checkImg($imageProps);
+        if(sizeof($errors) > 0) return $errors;
+
+        $this->img_Type = strtolower(end(explode('.',$imageProps['name'])));
+        $this->date = date('Y-m-d');
+        $imgName = $this->Id_image.'.'.$this->img_Type;
+        move_uploaded_file($imageProps['temp'],'images/'.$imgName);
+
+        // $createImg = "INSERT INTO `Image` (`imageId`,`userIdImage`,`likeImage`) VALUES ('".$this->Id_image."','".$this->userId_Img."','".$this->like_Img."')";
+        // $db->query($createImg);
+        // $this->Id_image = $db->imageId;
+    }
+
+    function getFileImage() {
+        $this->Id_image = $getImages['imageId'];
+        $this->userId_Img = $getImages['userIdImage'];
+        $this->like_Img = $getImages['likeImage'];
+
+        // $getImg = "SELECT * FROM `Image` WHERE `imageId`=".$this->Id_image;
+        // $getImage = $db->query($getImg);
+        // $getImages = $getImage->fetch_assoc();
+    }
+
+    function addTag($tagImg) {
+        $tag = new Tag();
+        $tag->imageId = $this->Id_image;
+        $tag->tagImg = $tagImg;
+        $tag->create();
+    }
+
+    // function deleteImage() {
+    //     $deleteImg = "DELETE FROM `Image` WHERE `imageId`=$this->Id_image";
+    //     $db->query($deleteImg);
+    // }
 }
 
 class User {
