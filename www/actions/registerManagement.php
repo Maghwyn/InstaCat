@@ -105,12 +105,7 @@ function SingIn() {
         $_SESSION["sign-in-pseudo"] = $pseudo;
         $_SESSION["sign-in-email"] = $email;
 
-        echo $pseudo . "</br>";
-        echo $email . "</br>";
-        echo $password . "</br>";
-        echo $password2 . "</br>";
-
-        // header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
+        header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
         exit();
     }
 }
