@@ -55,15 +55,30 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .log-in-user-docker {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .log-in-user-container {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .log-in-user {
-    display: visible;
+    appearance: none;
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
 }
 
     /*----- 
@@ -71,15 +86,30 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .log-in-password-docker {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .log-in-password-container {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .log-in-password {
-    display: visible;
+    appearance: none;
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
 }
 
     /*----- 
@@ -104,6 +134,19 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 .log-in-btn {
     width: 100%;
     height: 100%;
+
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.log-in-btn:hover {
+    background-color: rgba(116, 104, 136, 0.836)
 }
 
 
@@ -135,15 +178,30 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-pseudo-docker {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .sign-in-pseudo-container {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .sign-in-pseudo {
-    display: visible;
+    appearance: none;
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
 }
 
     /*----- 
@@ -151,15 +209,30 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-email-docker {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .sign-in-email-container {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .sign-in-email {
-    display: visible;
+    appearance: none;
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
 }
 
     /*----- 
@@ -167,17 +240,30 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
     -----*/
 
 .sign-in-password-docker {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .sign-in-password-container {
-    display: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .sign-in-password {
-    display: visible;
-    /* border: none;
-    background: none; */
+    appearance: none;
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
 }
 
     /*----- 
@@ -202,6 +288,19 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 .sign-in-btn {
     width: 100%;
     height: 100%;
+
+    background-color: rgba(102, 90, 122, 0.822);
+    border: 0.1px solid rgb(77, 68, 92);
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.sign-in-btn:hover {
+    background-color: rgba(116, 104, 136, 0.836)
 }
 
 
