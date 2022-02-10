@@ -12,24 +12,30 @@
             <div class="profil-description-container">
                 <h4 class='profil-pseudo'><?= isset($_SESSION["username"]) ? $_SESSION["username"] : ""; ?></h4>
                 <span class="profil-description">description à rajouter dans BDD si temps </span>
+                <form class="profil-add-image-container" action="../../../www/actions/galleryManagement.php?do=edit" method="POST">
+                    <input class="profil-add-image" type="submit" value="Edit">
+                </form>
             </div>
 
             <div class="profil-gallery-container">
                 <div class="profil-gallery">
                     <div class="gallery-column">
                         <?php 
-                            include_once "../www/actions/galleryManagement.php";
-                            if(isset($_SESSION["token"])) $url = dynamic_image();
+                            if(isset($_SESSION["token"])) {
+                                include_once "../www/actions/galleryManagement.php";
 
-                            foreach($url as $image) {
-                                echo "
-                                    <a href='#' target='_blank' class='gallery-link'>
-                                        <figure class='gallery-thumb'>
-                                            <img src='$image' alt='#' class='gallery-image'>
-                                        </figure>
-                                    </a>
-                                ";
-                            }
+                                $url = dynamic_image();
+                                foreach($url as $key_url) {
+                                    $img = $key_url["urlImage"];
+                                    echo "
+                                        <a href='#' target='_blank' class='gallery-link'>
+                                            <figure class='gallery-thumb'>
+                                                <img src='$img' alt='#' class='gallery-image'>
+                                            </figure>
+                                        </a>
+                                    ";
+                                }
+                            }else null;
                         ?>
                     </div>
                 </div>
@@ -38,4 +44,9 @@
     </div>
 </main>
 <?php include(__DIR__."/../partials/footer.php"); ?>
+<?php 
+if(isset($_SESSION["edit-image"])) {
+    include(__DIR__."/../partials/editImage.php");
+}else null; 
+?>
 <?php $content = ob_get_clean(); ?>
