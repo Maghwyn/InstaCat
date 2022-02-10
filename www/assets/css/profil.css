@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    width: 100%;
 }
 
 .profil-container {
@@ -59,33 +60,27 @@
     justify-content: center;
     text-align: center;
     border-bottom: 1px solid #ededed;
-    width: 80%;
+    width: 100%;
 }
 
 .profil-gallery {
     display: flex;
-    flex-wrap: row wrap;
-    overflow: hidden;
+    align-items: center;
     padding: 10px;
-    transition: 0.3s;
+    width: 100%;
 }
 
-/* .gallery-column {
+.gallery-column {
     display: flex;
-    flex-direction: row wrap;
-    width: 5%;
-} */
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
 .gallery-link {
-    margin: 2px;
-    overflow: hidden;
+    height: min-content;
 }
 
 .gallery-thumb {
-    position: relative;
-}
-
-.gallery-image {
-    margin-left: 25%;
-    margin-right: 20%;
+    margin: 10px 10px;
 }

@@ -35,9 +35,7 @@
                                 class="gallery-image">
                             </figure>
                         </a>
-                    </div>
 
-                    <div class="gallery-column">
                         <a href="https://unsplash.com/@noahbuscher" target="_blank" class="gallery-link">
                             <figure class="gallery-thumb">
                                 <img src="https://source.unsplash.com/AR7aumwKr2s/300x300" alt="Portrait by Noah Buscher"
@@ -58,9 +56,7 @@
                                 class="gallery-image">
                             </figure>
                         </a>
-                    </div>
 
-                    <div class="gallery-column">
                         <a href="https://unsplash.com/@marilezhava" target="_blank" class="gallery-link">
                             <figure class="gallery-thumb">
                                 <img src="https://source.unsplash.com/Xm9-vA_bhm0/300x500" alt="Portrait by Mari Lezhava"
@@ -81,9 +77,7 @@
                                 class="gallery-image">
                             </figure>
                         </a>
-                    </div>
 
-                    <div class="gallery-column">
                         <a href="https://unsplash.com/@frxgui" target="_blank" class="gallery-link">
                             <figure class="gallery-thumb">
                                 <img src="https://source.unsplash.com/FQhLLehm4dk/300x300" alt="Portrait by Guilian Fremaux"
