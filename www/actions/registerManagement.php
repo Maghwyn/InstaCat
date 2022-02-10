@@ -27,12 +27,11 @@ function LogIn()
     }
 
     if($are_fields_valid) {
-        if (!isset($_COOKIE["user"])) {
-            setcookie("user", json_encode(['username' => $user["pseudo"]]), time() + (86400 * 30), "/"); 
-        }
-
+        session_unset();
+        $_SESSION["token"] = "logged";
+        $_SESSION["username"] = $user["pseudo"];
+        session_write_close();
         header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
-        // session_destroy();
         exit(); 
     }else {
         header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
