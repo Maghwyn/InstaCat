@@ -1,12 +1,7 @@
 <?php $page_title = 'fill';
 // require __DIR__ . '../../../../www/actions/registerManagement.php';
+require_once __DIR__ . '/../../database.php';
 $user_identifier = $_GET['user_identifier'];
-
-
-
-
-
-
 ob_start(); ?>
 <?php include(__DIR__ . "/../partials/navBar.php"); ?>
 <main class="fillMain">
@@ -19,14 +14,26 @@ ob_start(); ?>
           src="https://images.pexels.com/photos/1804796/pexels-photo-1804796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
         <div class="active"></div>
       </div>
-      <?= "<h4 class='name'>  $user_identifier</h4>"; ?>
+      <?php echo "<h4 class='name'>" . $_GET['user_identifier'] . "</h4>"; ?>
 
+      <form action="" method="post" enctype="multipart/form-data">
+        <input name="image" type="file" class="file-input" id="file" placeholder="Choose the file from your device">
+        <input name="image_name">
+        <input type="submit" name="submit" value="upload"/>
+      </form>
+      <?php
+      if($_POST['submit']){
+        if(isset($_FILES['images'])) {
+          $image = new Image();
+          $image->name = $_POST['image_name'];
+          $image->createFileImage($_FILES['image']);
+        }
+      }
+      ?>
 
       <div class="stats row">
 
         <p class="desc">description à rajouter dans BDD si temps </p>
-
-
 
         <div class="gallery">
           <div class="gallery__column">
