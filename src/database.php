@@ -58,7 +58,6 @@ class Image {
     //     $deleteImg = "DELETE FROM `Image` WHERE `imageId`=$this->Id_image";
     //     $db->query($deleteImg);
     // }
-
 }
 
 class User {
