@@ -3,6 +3,7 @@
     align-items: center;
     flex-shrink: 0;
     height: 80px;
+    top: 0;
     background-color: rgb(101, 84, 131);
     box-shadow: 0 1px 3px 3px rgba(0, 0, 0, 0.6);
     z-index: 1;

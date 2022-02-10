@@ -26,13 +26,15 @@ function LogIn()
         }
     }
 
-    if ($are_fields_valid) {
-        // header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
-        header("Location: http://127.0.0.1:12001/www/index.php?p=fill&user_identifier=$user_identifier");
-        // header("Location: http://127.0.0.1:12001/www/index.php?p=fill");
+    if($are_fields_valid) {
+        if (!isset($_COOKIE["user"])) {
+            setcookie("user", json_encode(['username' => $user["pseudo"]]), time() + (86400 * 30), "/"); 
+        }
+
+        header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
         // session_destroy();
-        exit();
-    } else {
+        exit(); 
+    }else {
         header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
         session_destroy();
         exit();
