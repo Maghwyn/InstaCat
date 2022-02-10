@@ -1,11 +1,6 @@
-<?php $page_title = 'fill';
+<?php $page_title = 'profil';
 // require __DIR__ . '../../../../www/actions/registerManagement.php';
 $user_identifier = $_GET['user_identifier'];
-
-
-
-
-
 
 ob_start(); ?>
 <?php include(__DIR__ . "/../partials/navBar.php"); ?>
