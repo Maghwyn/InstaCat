@@ -21,11 +21,11 @@ class User {
     }
 
     function getValues() {
-        return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'pass' => $this -> pass);
+        return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'password' => $this -> pass);
     }
 
     function name() {
-        return strtolower(get_class($this) . "s");
+        return get_class($this);
     }
 }
 

@@ -4,94 +4,106 @@ function LogIn() {
     session_start();
 
     $are_fields_valid = false;
+    $user_identifier = htmlspecialchars($_POST["log-in-user"]);
+    $password = htmlspecialchars($_POST["log-in-password"]);
 
-    // $email = htmlspecialchars($_POST["the tag name"]);
-    // $password = htmlspecialchars($_POST["the tag name"]); // Don't hash the password.
+    if(!empty($user_identifier) && !empty($password)) {
+        include_once(__DIR__."../../../src/config/config.php");
+        include_once(__DIR__."../../../src/database.php");
 
-    if(!empty($email) && !empty($password)) {
-        //$$$$$$$$$$$$$$$$$$$$$$ Just a template.
-        // include_once(__DIR__."BDD_infos_path -> config.php");
-        // include_once(__DIR__."CLASS_path -> database.php");
+        str_contains($user_identifier, "@") ? $identifier = "email" : $identifier = "pseudo";
 
-        // try {
-        //     $bd = new BDD(config_db["host"], config_db["port"], config_db["dbname"], config_db["user"], config_db["pass"]);
-        //     $bd -> connect();
-        //     $dbtable = $bd -> select("SELECT * FROM User WHERE email = '$email'");
-        //     $user = $dbtable -> fetch(PDO::FETCH_ASSOC);
+        try {
+            $db = new BDD($config_db["host"], $config_db["port"], $config_db["dbname"], $config_db["user"], $config_db["pass"]);
+            $db -> connect();
+            $dbtable = $db -> select("SELECT * FROM User WHERE $identifier = '$user_identifier'");
+            $user = $dbtable -> fetch(PDO::FETCH_ASSOC);
 
-        //     if (password_verify($password, $user['password'])) $are_fields_valid = true;
-        // }
-        // catch (Exception $e) {
-        //     die($e->getMessage());
-        // }
+            if (password_verify($password, $user['password'])) $are_fields_valid = true;
+        }
+        catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
 
-    //$$$$$$$$$$$$$$$$$$$$$$ When working on it, change the somewhere to the right page.
-    // if($are_fields_valid) {
-    //     header('Location: http://127.0.0.1:12001/www/index.php?p=somewhere');
-    //     session_destroy();
-    //     exit(); 
-    // }else {
-    //     header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
-    //     session_destroy();
-    //     exit();
-    // }
+    if($are_fields_valid) {
+        header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
+        session_destroy();
+        exit(); 
+    }else {
+        header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
+        session_destroy();
+        exit();
+    }
 }
 
 function SingIn() {
     session_start();
 
-    $are_fields_valid = true;
     $rgx_pseudo = "/[^a-zA-Z0-9]/";
     $rgx_email = "/^(?=.{6,30}@)[0-9a-zA-Z]+(?:\.[0-9a-z]+)*@[a-z0-9-]{2,}(?:\.[a-z]{2,})+$/";
 
-    // Generate a random ID : Careful it doesn't verify if the ID already exist in the database.
-    $array = ["","","","","","","","","",""];
-    $random_id = array_rand($array, 9);
-    shuffle($random_id);
+    $pseudo = htmlspecialchars($_POST["sign-in-pseudo"]);
+    $email = htmlspecialchars($_POST["sign-in-email"]);
+    $password = htmlspecialchars($_POST["sign-in-password"]);
+    $password2 = htmlspecialchars($_POST["sign-in-password-verified"]);
 
-    $key_id = intval(implode("", $random_id), 10);
-    // $pseudo = htmlspecialchars($_POST["the tag name"]);
-    // $email = htmlspecialchars($_POST["the tag name"]);
-    // $password = password_hash($_POST["the tag name"], PASSWORD_DEFAULT);
+    if(
+        (strlen($pseudo)   <= 20 || !empty($pseudo)   ||  preg_match($rgx_pseudo, $pseudo)) &&
+        (strlen($email)    <= 50 || !empty($email)    ||  preg_match($rgx_email, $email  )) &&
+        (strlen($password) >= 7  || !empty($password) || ($password === $password2)      )) {
+            $are_fields_valid = true;
+    }else $are_fields_valid = false;
 
-    /********************
-        Verification of the field goes here :
-            - strlen($field) >= value    // Set the limit of characters in the field. 
-            - empty($field)              // Check if the field is empty.
-            - preg_match(regex, $field)  // Check if the field has an unwanted character, or doesn't follow a rule.
-
-        If one of these requirements is false, the form is invalid.
-    ********************/
 
     if($are_fields_valid) {
-        //$$$$$$$$$$$$$$$$$$$$$$ Just a template.
-        // include_once(__DIR__."BDD_infos_path -> config.php");
-        // include_once(__DIR__."CLASS_path -> database.php");
+        include_once(__DIR__."../../../src/config/config.php");
+        include_once(__DIR__."../../../src/database.php");
 
-        // try {
-        //     $bd = new BDD(config_db["host"], config_db["port"], config_db["dbname"], config_db["user"], config_db["pass"]);
-        //     $user = new User($key_id, $pseudo, $email, $password);
-    
-        //     $bd -> connect();
-        //     $bd -> insert($user);
-        //     $bd -> disconnect();
-        // }
-        // catch (Exception $e) {
-        //     die($e->getMessage());
-        // }
+        $array = ["","","","","","","","","",""];
+        $random_id = array_rand($array, 9);
+        shuffle($random_id);
 
-        //$$$$$$$$$$$$$$$$$$$$$$ When working on it, change the somewhere to the right page.
-        // header('Location: http://127.0.0.1:12001/www/index.php?p=somewhere');
-        // session_destroy();
-        // exit(); 
+        try {
+            $bd = new BDD($config_db["host"], $config_db["port"], $config_db["dbname"], $config_db["user"], $config_db["pass"]);    
+            $bd -> connect();
+
+            // $dbtable = $bd -> select("SELECT * FROM User WHERE userId = '$random_id'");
+            // $user = $dbtable -> fetch(PDO::FETCH_ASSOC);
+            // while($user["id"] === $key_id) { shuffle($random_id); }
+
+            $key_id = intval(implode("", $random_id), 10);
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $user = new User($key_id, $pseudo, $email, $hashed_password);
+
+            $bd -> insert($user);
+            $bd -> disconnect();
+        }
+        catch (Exception $e) {
+            die($e->getMessage());
+        }
+
+        header('Location: http://127.0.0.1:12001/www/index.php?p=register&success');
+        session_destroy();
+        exit(); 
     }else {
-        //$$$$$$$$$$$$$$$$$$$$$$ Keep the values of the fields just in case, except the password.
-        // $_SESSION["pseudo"] = $pseudo;
-        // $_SESSION["email"] = $email;
+        $_SESSION["sign-in-pseudo"] = $pseudo;
+        $_SESSION["sign-in-email"] = $email;
 
-        header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
+        echo $pseudo . "</br>";
+        echo $email . "</br>";
+        echo $password . "</br>";
+        echo $password2 . "</br>";
+
+        // header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
         exit();
     }
+}
+
+$control = ['login', 'signin'];
+
+if (!empty($_GET['do']) && in_array($_GET['do'], $control)) {
+    if($_GET['do'] === "login") LogIn();
+    else SingIn();
 }
 ?>

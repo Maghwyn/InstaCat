@@ -5,7 +5,7 @@
         <div class="register">
 
             <div class="register-log-in">
-                <form class="log-in" action="null" method="POST">
+                <form class="log-in" action="../../../www/actions/registerManagement.php?do=login" method="POST">
 
                     <div class="log-in-user-docker">
                         <div class="log-in-user-container">
@@ -31,18 +31,20 @@
             </div>
 
             <div class="register-sign-in">
-                <form class="sign-in" action="null" method="POST">
+                <form class="sign-in" action="../../../www/actions/registerManagement.php?do=signin" method="POST">
 
                     <div class="sign-in-pseudo-docker">
                         <div class="sign-in-pseudo-container">
-                            <input class="sign-in-pseudo" name="sign-in-pseudo" type="text" required>
+                            <input class="sign-in-pseudo" name="sign-in-pseudo" type="text" required
+                                value="<?= isset($_SESSION["sign-in-pseudo"]) ? $_SESSION["sign-in-pseudo"] : ""; ?>">
                             <label><strong>Pseudo</strong></label>
                         </div>
                     </div>
 
                     <div class="sign-in-email-docker">
                         <div class="sign-in-email-container">
-                            <input class="sign-in-email" name="sign-in-email" type="email" required>
+                            <input class="sign-in-email" name="sign-in-email" type="email" required
+                            value="<?= isset($_SESSION["sign-in-email"]) ? $_SESSION["sign-in-email"] : ""; ?>">
                             <label><strong>Email</strong></label>
                         </div>
                     </div>
