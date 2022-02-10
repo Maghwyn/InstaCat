@@ -1,8 +1,7 @@
 <?php
 
-function LogIn()
-{
-    session_start();
+function LogIn() {
+    if(!isset($_SESSION)) session_start();
 
     $are_fields_valid = false;
     $user_identifier = htmlspecialchars($_POST["log-in-user"]);
@@ -40,9 +39,8 @@ function LogIn()
     }
 }
 
-function SingIn()
-{
-    session_start();
+function SingIn() {
+    if(!isset($_SESSION)) session_start();
 
     $rgx_pseudo = "/[^a-zA-Z0-9]/";
     $rgx_email = "/^(?=.{6,30}@)[0-9a-zA-Z]+(?:\.[0-9a-z]+)*@[a-z0-9-]{2,}(?:\.[a-z]{2,})+$/";
