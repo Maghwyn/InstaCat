@@ -26,8 +26,8 @@ function LogIn() {
     }
     //$$$$$$$$$$$$$$$$$$$$$$ When working on it, change the somewhere to the right page.
     if($are_fields_valid) {
-        $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
+        $_SESSION["email"] = $_POST["log-in-user"];
+        $_SESSION["password"] = $_POST["log-in-password"];
         echo 'Login success';
         header('Location: http://127.0.0.1:12001/www/index.php?p=somewhere');
         session_destroy();
@@ -89,17 +89,17 @@ function SingIn() {
             die($e->getMessage());
         }
         //$$$$$$$$$$$$$$$$$$$$$$ When working on it, change the somewhere to the right page.
-        $_SESSION["pseudo"] = $pseudo;
-        $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
-        $_SESSION["password_verified"] = $password_verified;
+        $_SESSION["pseudo"] = $_POST["sign-in-pseudo"];
+        $_SESSION["email"] = $_POST["sign-in-email"];
+        $_SESSION["password"] = $_POST["sign-in-password"];
+        $_SESSION["password_verified"] = $_POST["sign-in-password-verified"];
         header('Location: http://127.0.0.1:12001/www/index.php?p=somewhere');
         session_destroy();
         exit(); 
     }else {
         //$$$$$$$$$$$$$$$$$$$$$$ Keep the values of the fields just in case, except the password.
-        $_SESSION["pseudo"] = $pseudo;
-        $_SESSION["email"] = $email;
+        $_SESSION["pseudo"] = $_POST["sign-in-pseudo"];
+        $_SESSION["email"] = $_POST["sign-in-email"];
         header('Location: http://127.0.0.1:12001/www/index.php?p=register&error=code_error');
         exit();
     }
