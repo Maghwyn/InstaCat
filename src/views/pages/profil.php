@@ -1,5 +1,7 @@
-<?php $page_title = 'profil'; ob_start(); ?>
+<?php $page_title = 'profil';
+ob_start(); ?>
 <main>
-    <h1>Nothing for now, but it's the profil page</h1>
+
 </main>
+<?php include(__DIR__ . "/../partials/footer.php"); ?>
 <?php $content = ob_get_clean(); ?>

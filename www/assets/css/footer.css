@@ -1,18 +1,18 @@
 .footer {
-    flex-shrink: 0;
-    height: 6vh;
+  flex-shrink: 0;
+  height: 6vh;
 }
 
 .footer-copyright {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
-    box-shadow: 0 -1px 3px 3px rgba(0, 0, 0, 0.6);
-    background-color: rgb(101, 84, 131);
+  box-shadow: 0 -1px 3px 3px rgba(0, 0, 0, 0.6);
+  background-color: rgb(101, 84, 131);
 }
 
 .footer-copyright > span {
-    color: rgb(218, 218, 218);
+  color: rgb(218, 218, 218);
 }
