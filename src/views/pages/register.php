@@ -9,13 +9,15 @@
 
                     <div class="log-in-user-docker">
                         <div class="log-in-user-container">
-                            <input class="log-in-user" name="log-in-user" type="text" placeholder="Pseudo/Email" required>
+                            <input class="log-in-user" name="log-in-user" type="text" required>
+                            <label><strong>Pseudo/Email</strong></label>
                         </div>
                     </div>
 
-                    <div class="log-in-pass-docker">
-                        <div class="log-in-pass-container">
-                            <input class="log-in-password" name="log-in-password" type="password" placeholder="Password" required>
+                    <div class="log-in-password-docker">
+                        <div class="log-in-password-container">
+                            <input class="log-in-password" name="log-in-password" type="password" required>
+                            <label><strong>Password</strong></label>
                         </div>
                     </div>
 
@@ -33,25 +35,29 @@
 
                     <div class="sign-in-pseudo-docker">
                         <div class="sign-in-pseudo-container">
-                            <input class="sign-in-pseudo" name="sign-in-pseudo" type="text" placeholder="Pseudo" required>
+                            <input class="sign-in-pseudo" name="sign-in-pseudo" type="text" required>
+                            <label><strong>Pseudo</strong></label>
                         </div>
                     </div>
 
                     <div class="sign-in-email-docker">
                         <div class="sign-in-email-container">
-                            <input class="sign-in-email" name="sign-in-email" type="email" placeholder="Email" required>
+                            <input class="sign-in-email" name="sign-in-email" type="email" required>
+                            <label><strong>Email</strong></label>
                         </div>
                     </div>
 
-                    <div class="sign-in-pass-docker">
-                        <div class="sign-in-pass-container">
-                            <input class="sign-in-password" name="sign-in-password" type="password" placeholder="Password" required>
+                    <div class="sign-in-password-docker">
+                        <div class="sign-in-password-container">
+                            <input class="sign-in-password" name="sign-in-password" type="password" required>
+                            <label><strong>Password</strong></label>
                         </div>
                     </div>
 
-                    <div class="sign-in-pass-docker">
-                        <div class="sign-in-pass-container">
-                            <input class="sign-in-password" name="sign-in-password-verified" type="password" placeholder="Password" required>
+                    <div class="sign-in-password-docker">
+                        <div class="sign-in-password-container">
+                            <input class="sign-in-password" name="sign-in-password-verified" type="password" required>
+                            <label><strong>Verify Password</strong></label>
                         </div>
                     </div>
 
