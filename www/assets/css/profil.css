@@ -94,3 +94,58 @@
 .gallery-thumb {
     margin: 10px 10px;
 }
+
+/********/
+
+.image-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.651);
+    
+    width: 100%;
+    height: 100%;
+    position : fixed;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.image-edit-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    width: 30%;
+    height: 50%;
+    border-radius: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 20px;
+}
+
+.image-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.image-process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+}
+
+.select-image {
+
+}
+
+.submit-image {
+
+}

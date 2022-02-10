@@ -20,6 +20,7 @@ function LogIn() {
             $user = $dbtable->fetch(PDO::FETCH_ASSOC);
 
             if (password_verify($password, $user['password'])) $are_fields_valid = true;
+            $db->disconnect();
         } catch (Exception $e) {
             die($e->getMessage());
         }
