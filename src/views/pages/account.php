@@ -4,7 +4,7 @@
 // var_dump($_COOKIE); //Debug
 
 if(isset($_COOKIE['user']) && !isset($_SESSION["login"])) {
-    var_dump($_COOKIE['user']);
+    // var_dump($_COOKIE['user']);
     $user = $_COOKIE['user'];
 
     $_SESSION["login"] = true;
@@ -13,7 +13,9 @@ if(isset($_COOKIE['user']) && !isset($_SESSION["login"])) {
     header("Location: http://127.0.0.1:12001/www/index.php?p=register");
 }
 ?>
+<?php include(__DIR__."/../partials/navBar.php"); ?>
 <main>
     <h1>Nothing for now, but it's the account page</h1>
 </main>
+<?php include(__DIR__."/../partials/footer.php"); ?>
 <?php $content = ob_get_clean(); ?>
