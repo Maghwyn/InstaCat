@@ -1,29 +1,16 @@
 <?php $page_title = 'profil'; /*$user_identifier = $_GET['user_identifier'];*/ ob_start(); ?>
-<?php 
-setcookie("user", "", time() - (86400 * 31), "/", false, false);
-var_dump($_COOKIE); //Debug
-
-if(isset($_COOKIE['user']) && !isset($_SESSION["login"])) {
-    // var_dump($_COOKIE['user']);
-    $user = $_COOKIE['user'];
-
-    $_SESSION["login"] = true;
-    $_SESSION["username"] = $user;
-}else {
-    header("Location: http://127.0.0.1:12001/www/index.php?p=register");
-}
-?>
+<?php if(!isset($_SESSION["token"])) header("Location: http://127.0.0.1:12001/www/index.php?p=register");?>
 
 <?php include(__DIR__ . "/../partials/navBar.php"); ?>
 <main class="profil">
     <div class="profil-docker">
         <div class="profil-container">
             <div class="profil-picture-container">
-                <img class="profil-picture"src="../../../src/img/register_bg.jpg">
+                <img class="profil-picture"src="../../../src/img/userUnknown.png">
             </div>
 
             <div class="profil-description-container">
-                <!-- <?= "<h4 class='name'>  $user_identifier</h4>"; ?> -->
+                <h4 class='profil-pseudo'><?= isset($_SESSION["username"]) ? $_SESSION["username"] : ""; ?></h4>
                 <span class="profil-description">description à rajouter dans BDD si temps </span>
             </div>
 
