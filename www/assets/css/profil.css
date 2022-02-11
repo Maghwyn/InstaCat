@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #3d3d3d, #3d3d3d);
+    background: linear-gradient(to right, #6b536b, #80618b);
     background-color: transparent;
 }
 
@@ -51,14 +51,7 @@
     animation: animate 1s infinite;
     animation-delay: -1s;
 }
-/* @keyframes animate{
-    0%{
-        background: linear-gradient(to right, #e1dfe2, #8ca6db);
-    }
-    100%{px;
-        background: linear-gradient(to right, #b993d6, #e9e9e9);
-    }
-} */
+
 .profil-picture:focus {
     animation: animate 1s infinite;
     animation-delay: -1s;
@@ -137,6 +130,15 @@
     cursor: pointer;
 }
 
+.gallery-image {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.623);
+    transition: transform .3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02);
+}
+
 /********/
 
 .image-editor {
@@ -153,7 +155,7 @@
 
 .image-edit-container {
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    background: linear-gradient(to right, #fafafa, #ffffff);
+    background-color: rgba(139, 91, 145, 0.932);
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -310,7 +312,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: row;
-    background: rgb(255, 255, 255);
+    background-color: rgba(139, 91, 145, 0.932);
     width: 60%;
     height: 60%;
     border-radius: 20px;
@@ -372,7 +374,7 @@
     border-radius: 0 15px 0 0;
     padding: 5px 10px;
     box-shadow: inset 0px 0px 4px 3px rgba(0, 0, 0, 0.342);
-    background-color: #a6a9be;
+    background-color: #dbd8d8;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -383,7 +385,7 @@
     width: 100%;
     min-height: 50px;
     height: auto;
-    background: red;
+    background-color: rgba(161, 129, 167, 0.699);
     border-radius: 10px;
     margin: 5px;
     padding: 5px 15px;
