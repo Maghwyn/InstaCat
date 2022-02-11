@@ -9,6 +9,14 @@
             </form>
         </div>
 
+        <div class="desc-edit">
+            <span>Define the description of your profil :</span>
+            <form class="desc-process" action="../../../www/actions/galleryManagement.php?do=desc" method="POST">
+                <input class="define-desc" name="defined-desc" type="text" placeholder="Write what you have in mind">
+                <input class="submit-desc" type="submit" value="Upload"/>
+            </form>
+        </div>
+
         <div class="gallery-edit">
             <span>Upload an image to the gallery :</span>
             <form class="gallery-process" action="../../../www/actions/galleryManagement.php?do=add" method="POST">
@@ -17,5 +25,10 @@
             </form>
         </div>
 
+        <div class="btn-edit">
+            <form class="btn-exit" action="../../../www/actions/galleryManagement.php?do=exit" method="POST">
+                <input class="exit" type="submit" value="Exit"/>
+            </form>
+        </div>
     </div>
 </main>

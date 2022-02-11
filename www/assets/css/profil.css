@@ -150,6 +150,33 @@
 
 }
 
+.desc-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.desc-process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+}
+
+.define-desc {
+
+}
+
+.submit-desc {
+
+}
+
 .gallery-edit {
     display: flex;
     align-items: center;
@@ -174,5 +201,28 @@
 }
 
 .submit-image {
+
+}
+
+.btn-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.btn-exist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 30%;
+}
+
+.exit {
 
 }
