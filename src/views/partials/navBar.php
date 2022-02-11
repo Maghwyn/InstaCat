@@ -14,6 +14,11 @@
                         <a href='index.php?p=account'><span>Account</span></a>
                         <a href='index.php?cmd=logout'><span>Log out</span></a>
                     </div>
+
+                    <form action='../../../www/actions/tagManagement.php?do=search' method='GET'>
+                        <input type='search' name='tag'>
+                        <input type='submit' name='do' value='search'>
+                    </form>
                     ";
                 }
             ?>

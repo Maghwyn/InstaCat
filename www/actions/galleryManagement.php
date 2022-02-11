@@ -55,10 +55,7 @@ function add_image()
         die($e->getMessage());
     }
 
-    // unset($_SESSION["edit-image"]);
-    // session_write_close();
-    // header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
-    // exit();
+    
 }
 
 function add_picture()
