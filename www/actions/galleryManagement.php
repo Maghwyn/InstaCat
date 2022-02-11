@@ -253,7 +253,24 @@ function send_msg()
     session_write_close();
     header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
     exit();
-}
+};
+
+function search_tags()
+{
+
+
+    // $_SESSION["tag"] = $tag;
+
+
+    var_dump($_GET['tag']);
+
+
+
+
+    // $tag = htmlspecialchars($_GET['s']);
+    // var_dump($tag);
+};
+
 
 if (isset($_GET['do'])) {
     if ($_GET['do'] === "edit") gallery_editor();
@@ -262,4 +279,5 @@ if (isset($_GET['do'])) {
     else if ($_GET['do'] === "add") add_image();
     else if ($_GET['do'] === "exit") exit_edit();
     else if ($_GET['do'] === 'msg') send_msg();
+    else if ($_GET['do'] === 'search') search_tags();
 } else if (isset($_GET['id'])) img_get_src();
