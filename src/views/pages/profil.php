@@ -44,8 +44,12 @@
                             if(isset($_SESSION["token"]) && isset($_SESSION["images_url"])) {
                                 foreach($_SESSION["images_url"] as $key_url) {
                                     $img = $key_url["urlImage"];
+                                    $array = str_split($img);
+                                    $id = array_splice($array, 28);
+                                    $str_id = implode("",$id);
+
                                     echo "
-                                        <a href='#' target='_blank' class='gallery-link'>
+                                        <a href='../../../www/actions/galleryManagement.php?id=$str_id' target='_blank' class='gallery-link'>
                                             <figure class='gallery-thumb'>
                                                 <img src='$img' alt='#' class='gallery-image'>
                                             </figure>
@@ -63,9 +67,10 @@
     </div>
 </main>
 <?php include(__DIR__."/../partials/footer.php"); ?>
-<?php 
-if(isset($_SESSION["edit-image"])) {
-    include(__DIR__."/../partials/editImage.php");
-}else null; 
+<?php if(isset($_SESSION["edit-image"])) include(__DIR__."/../partials/editImage.php"); ?>
+<?php if(isset($_SESSION["view-image"])) {
+    $img_src = $_SESSION["img-src"];
+    include(__DIR__."/../partials/viewImage.php"); 
+}
 ?>
 <?php $content = ob_get_clean(); ?>

@@ -1,4 +1,4 @@
-<main class="image-viewer">
+<main class="image-editor">
     <div class="image-edit-container">
 
         <div class="picture-edit">

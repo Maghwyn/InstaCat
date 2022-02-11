@@ -97,7 +97,7 @@
 
 /********/
 
-.image-viewer {
+.image-editor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,4 +225,130 @@
 
 .exit {
 
+}
+
+.image-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.651);
+    
+    width: 100%;
+    height: 100%;
+    position : fixed;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.image-viewer-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    background: rgb(255, 255, 255);
+    width: 60%;
+    height: 60%;
+    border-radius: 20px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.message-section {
+    display: flex;
+    width: 40%;
+    height: 100%;
+}
+
+.image-docker {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    /* border: 1px solid rgb(0, 0, 0); */
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.display-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+
+.message-docker {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.message-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 15px 0 0;
+    padding: 5px 10px;
+    box-shadow: inset 0px 0px 4px 3px rgba(0, 0, 0, 0.342);
+}
+
+
+.message-box {
+    width: 100%;
+    min-height: 50px;
+    height: auto;
+    background: red;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px 15px;
+}
+
+.message {
+
+}
+
+.message-editor-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 40%;
+    border-radius: 20px;
+}
+
+.message-editor {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.message-user {
+    width: 100%;
+    height: 70%;
+}
+
+.message-submit {
+    width: 100%;
+    text-align: center;
 }
