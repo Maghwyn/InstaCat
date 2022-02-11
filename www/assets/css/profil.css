@@ -270,10 +270,10 @@
     flex-direction: column;
     width: 100%;
     height: 20%;
-    border: 1px solid #b993d6;
+    /* border: 1px solid rgb(0, 0, 0); */
 }
 
-.btn-exist {
+.btn-exit {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,4 +420,33 @@
 .message-submit {
     width: 100%;
     text-align: center;
+}
+
+.heart {
+    cursor: pointer;
+    height: 75px;
+    width: 75px;
+    background-image:url( 'https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;
+}
+
+.heart:hover {
+    background-position:right;
+}
+
+.is_animating {
+    /* transition: heart-burst; */
+    animation: heart-burst .8s steps(28) 1;
+    transition: animation;
+}
+
+.heart:active {
+    background-image: red;
+}
+
+@keyframes heart-burst {
+    from { background-position:left; }
+    to   { background-position:right;}
 }
