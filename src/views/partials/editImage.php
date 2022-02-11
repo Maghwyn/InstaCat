@@ -12,7 +12,7 @@
     <div class="desc-edit">
       <span>Define the description of your profil :</span>
       <form class="desc-process" action="../../../www/actions/galleryManagement.php?do=desc" method="POST">
-        <input class="define-desc" name="defined-desc" type="text" placeholder="Write what you have in mind">
+        <input class="define-desc" name="defined-desc" type="text" placeholder="Be creative..">
         <input class="submit-desc" type="submit" value="Upload" />
       </form>
     </div>
@@ -25,7 +25,7 @@
           <li style="padding-top:5px; list-style:none;"> <input class="select-image" name="selected-image" type="text"
               placeholder="Paste URL"></li>
           <li style="margin-top:5px; list-style:none;"> <input class=" select-tag" name="selected-tag" type="text"
-              placeholder="cat"></li>
+              placeholder="Enter a Tag"></li>
           <li style="margin-top:5px; list-style:none; text-align:center; "><input class="submit-image" type="submit"
               value="Upload" /></li>
 
