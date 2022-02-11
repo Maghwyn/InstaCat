@@ -69,7 +69,8 @@ class User {
     }
 
     function getValues() {
-        return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'password' => $this -> pass);
+        return array("pseudo" => $this -> pseudo, 'email' => $this -> email, 'password' => $this -> pass,
+                     "profilPicture" => "", "profililDesc" => "");
     }
 
     function name() {
@@ -110,6 +111,7 @@ class BDD {
 
         foreach($values as $el) { $str .= ", '".$el."'"; }
         $query = "INSERT INTO ".$name." VALUES (".$id.$str.")";
+        var_dump($query);
         $this -> db -> query($query);
     }
 

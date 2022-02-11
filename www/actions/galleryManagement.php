@@ -169,9 +169,7 @@ function img_get_src() {
         $imgid = $dbtable->fetchAll(PDO::FETCH_ASSOC);
 
         $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId GROUP BY C.commentId;");
-        $msgcontent = $getMsg->fetchAll(PDO::FETCH_ASSOC);
-
-        var_dump($msg_content);
+        $msg_content = $getMsg->fetchAll(PDO::FETCH_ASSOC);
 
         $db->disconnect();
     } catch (Exception $e) {

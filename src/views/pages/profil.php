@@ -13,7 +13,7 @@
                 <?php
                     if(isset($_SESSION["token"])) {
                         $get_pic = $_SESSION["userpic"];
-                        if($get_pic === NULL) echo "<img class='profil-picture' src='../../../src/img/userUnknown.png'>";
+                        if(empty($get_pic)) echo "<img class='profil-picture' src='../../../src/img/userUnknown.png'>";
                         else echo "<img class='profil-picture' src='$get_pic'>";
 
                         unset($_SESSION["userpic"]);
@@ -26,7 +26,7 @@
                 <?php
                     if(isset($_SESSION["token"])) {
                         $get_desc = $_SESSION["userdesc"];
-                        if($get_desc === NULL) echo "<span class='profil-description'>Edit your profile to change the description.</span>";
+                        if(empty($get_desc)) echo "<span class='profil-description'>Edit your profile to change the description.</span>";
                         else echo "<span class='profil-description'>$get_desc</span>";
 
                         unset($_SESSION["userdesc"]);
@@ -49,11 +49,11 @@
                                     $str_id = implode("",$id);
 
                                     echo "
-                                        <a href='../../../www/actions/galleryManagement.php?id=$str_id' target='_blank' class='gallery-link'>
-                                            <figure class='gallery-thumb'>
+                                        <form class='gallery-link' action='/www/actions/galleryManagement.php?id=$str_id' method='POST'>
+                                            <figure class='gallery-thumb' onClick='javascript:this.parentNode.submit();'>
                                                 <img src='$img' alt='#' class='gallery-image'>
                                             </figure>
-                                        </a>
+                                        </form>
                                     ";
                                 }
 
