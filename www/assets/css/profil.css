@@ -1,8 +1,14 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
 .profil {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(63, 62, 63, 0.349);
+    background: linear-gradient(to right, #3d3d3d, #3d3d3d);
+    background-color: transparent;
 }
 
 .profil-docker {
@@ -29,13 +35,34 @@
 }
 
 .profil-picture {
+    transition: 0.3s ease-in-out;
     width: 200px;
     height: 200px;
     object-fit: cover;
     overflow: hidden;
-    border-radius: 300px;
-    border: 4px solid rgb(0, 0, 0);
-    background-color: white;
+    border-radius: 10px;
+    border: 4px solid #b993d6;
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+}
+.profil-picture:hover {
+    cursor: pointer;
+    border-radius: 100px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    animation: animate 1s infinite;
+    animation-delay: -1s;
+}
+/* @keyframes animate{
+    0%{
+        background: linear-gradient(to right, #e1dfe2, #8ca6db);
+    }
+    100%{px;
+        background: linear-gradient(to right, #b993d6, #e9e9e9);
+    }
+} */
+.profil-picture:focus {
+    animation: animate 1s infinite;
+    animation-delay: -1s;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .profil-description-container {
@@ -49,7 +76,7 @@
 
 .profil-pseudo {
     text-align: center;
-    color: #999;
+    color: rgb(255, 255, 255);
     font-size: 20pt;
 }
 
@@ -57,10 +84,10 @@
     text-align: center;
     margin-top: 25px;
     margin: 25px 40px;
-    color: #999;
+    color: rgb(255, 255, 255);
     font-size: 11pt;
     padding-bottom: 25px;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #b993d6;
     width: 100%;
 }
 
@@ -69,8 +96,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #b993d6;
     width: 100%;
+}
+
+.profil-add-image-container{
+    padding: 25px 40px;
+}
+
+.profil-add-image{
+    padding: 3px 5px;
+    border-radius: 20px;
+}
+
+.profil-add-image:hover{
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .profil-gallery {
@@ -103,7 +144,6 @@
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.651);
-    
     width: 100%;
     height: 100%;
     position : fixed;
@@ -112,15 +152,16 @@
 }
 
 .image-edit-container {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    background: linear-gradient(to right, #fafafa, #ffffff);
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background: rgb(255, 255, 255);
     width: 30%;
     height: 50%;
     border-radius: 20px;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid  #b993d6;
     padding: 20px;
 }
 
@@ -131,7 +172,7 @@
     flex-direction: column;
     width: 100%;
     height: 50%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #b993d6
 }
 
 .picture-process {
@@ -148,7 +189,12 @@
 }
 
 .submit-picture {
-
+    padding: 3px 5px;
+    border-radius: 20px;
+}
+.submit-picture:hover{
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .desc-edit {
@@ -158,7 +204,7 @@
     flex-direction: column;
     width: 100%;
     height: 50%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #b993d6;
 }
 
 .desc-process {
@@ -175,7 +221,13 @@
 }
 
 .submit-desc {
+    padding: 3px 5px;
+    border-radius: 20px;
+}
 
+.submit-desc:hover{
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .gallery-edit {
@@ -185,7 +237,7 @@
     flex-direction: column;
     width: 100%;
     height: 50%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #b993d6;
 }
 
 .gallery-process {
@@ -202,7 +254,13 @@
 }
 
 .submit-image {
+    padding: 3px 5px;
+    border-radius: 20px;
+}
 
+.submit-image:hover{
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .btn-edit {
@@ -212,7 +270,7 @@
     flex-direction: column;
     width: 100%;
     height: 20%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #b993d6;
 }
 
 .btn-exist {
@@ -225,7 +283,13 @@
 }
 
 .exit {
+    padding: 3px 5px;
+    border-radius: 20px;
+}
 
+.exit:hover{
+    background: linear-gradient(to right, #b993d6, #e9e9e9);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 .image-viewer {
