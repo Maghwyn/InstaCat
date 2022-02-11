@@ -19,6 +19,8 @@ function add_image()
     $image_name = htmlspecialchars($_POST["selected-image"]);
     $tag_name = htmlspecialchars($_POST["selected-tag"]);
 
+    var_dump("we got here");
+
     $array = ["", "", "", "", "", "", "", "", "", ""];
     $random_id = array_rand($array, 9);
     shuffle($random_id);
@@ -35,8 +37,6 @@ function add_image()
         $key_id = intval(implode("", $random_id), 10);
         $img = new Image($key_id, $userid, $image_name, 0);
 
-
-
         $db->insert($img);
 
         if (!empty($tag_name)) {
@@ -50,16 +50,15 @@ function add_image()
             $db->select("INSERT INTO `NbTag` (`imageId`, `tagId`) VALUES ('$key_id', '$key_id_tag') ");
         }
 
-
         $db->disconnect();
     } catch (Exception $e) {
         die($e->getMessage());
     }
 
-    unset($_SESSION["edit-image"]);
-    session_write_close();
-    header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
-    exit();
+    // unset($_SESSION["edit-image"]);
+    // session_write_close();
+    // header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
+    // exit();
 }
 
 function add_picture()
@@ -141,7 +140,7 @@ function load_content()
         $userpic = $user["profilPicture"];
         $userdesc = $user["profilDesc"];
 
-        $dbtable = $db->select("SELECT I.urlImage FROM Image as I JOIN User as U on I.userIdImage = U.userId WHERE U.userId = $userid GROUP BY I.urlImage");
+        $dbtable = $db->select("SELECT I.urlImage FROM Image as I, User as U WHERE I.userIdImage = U.userId and U.userId = $userid");
         $images_url = $dbtable->fetchAll(PDO::FETCH_ASSOC);
 
         $db->disconnect();
@@ -149,6 +148,8 @@ function load_content()
         $_SESSION["userpic"] = $userpic;
         $_SESSION["images_url"] = $images_url;
         $_SESSION["userdesc"] = $userdesc;
+
+        if(empty($_SESSION))
 
         session_write_close();
     } catch (Exception $e) {
@@ -198,6 +199,8 @@ function img_get_src()
     } catch (Exception $e) {
         die($e->getMessage());
     }
+
+    // var_dump($image_url);
 
     $_SESSION["view-image"] = true;
     $_SESSION["img-src"] = $_GET['id'];

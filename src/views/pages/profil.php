@@ -33,7 +33,7 @@
                     }
                 ?>
                 <form class="profil-add-image-container" action="../../../www/actions/galleryManagement.php?do=edit" method="POST">
-                    <input class="profil-add-image" type="submit" value="Edit">
+                    <input class="profil-add-image" type="submit" value="Edit your profile">
                 </form>
             </div>
 
@@ -42,6 +42,7 @@
                     <div class="gallery-column">
                         <?php 
                             if(isset($_SESSION["token"]) && isset($_SESSION["images_url"])) {
+                                // var_dump($_SESSION["images_url"]);
                                 foreach($_SESSION["images_url"] as $key_url) {
                                     $img = $key_url["urlImage"];
                                     $array = str_split($img);

@@ -5,7 +5,7 @@
       <span>Upload a picture to your profil :</span>
       <form class="picture-process" action="../../../www/actions/galleryManagement.php?do=pic" method="POST">
         <input class="select-picture" name="selected-picture" type="text" placeholder="Paste URL">
-        <input class="submit-picture" type="submit" value="Upload" />
+        <input class="submit-picture" type="submit" value="Upload"/>
       </form>
     </div>
 
@@ -13,7 +13,7 @@
       <span>Define the description of your profil :</span>
       <form class="desc-process" action="../../../www/actions/galleryManagement.php?do=desc" method="POST">
         <input class="define-desc" name="defined-desc" type="text" placeholder="Be creative..">
-        <input class="submit-desc" type="submit" value="Upload" />
+        <input class="submit-desc" type="submit" value="Upload"/>
       </form>
     </div>
 
@@ -28,17 +28,13 @@
               placeholder="Enter a Tag"></li>
           <li style="margin-top:5px; list-style:none; text-align:center; "><input class="submit-image" type="submit"
               value="Upload" /></li>
-
-
         </ul>
-
-
-
+        </form>
     </div>
 
     <div class="btn-edit">
       <form class="btn-exit" action="../../../www/actions/galleryManagement.php?do=exit" method="POST">
-        <input class="exit" type="submit" value="Exit" />
+        <input class="exit" type="submit" value="Exit"/>
       </form>
     </div>
   </div>
