@@ -166,9 +166,11 @@ function img_get_src() {
         $userid = $user["userId"];
 
         $dbtable = $db->select("SELECT I.imageId FROM Image as I, User as U WHERE I.userIdImage = U.userId and U.userId = $userid and I.urlImage = '$image_url';");
-        $imgid = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+        $imgids = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+        $imgid = $imgids[0]['imageId'];
 
-        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId GROUP BY C.commentId;");
+        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId 
+        and I.imageId = $imgid and U.userId = $userid GROUP BY C.commentId;");
         $msg_content = $getMsg->fetchAll(PDO::FETCH_ASSOC);
 
         $db->disconnect();
@@ -208,14 +210,16 @@ function send_msg() {
         $userid = $user["userId"];
 
         $dbtable = $db->select("SELECT I.imageId FROM Image as I, User as U WHERE I.userIdImage = U.userId and U.userId = $userid and I.urlImage = '$image_url';");
-        $imgid = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+        $imgids = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+        $imgid = $imgids[0]['imageId'];
 
         $key_id = intval(implode("", $random_id), 10);
-        $msg = new Comment($key_id, $imgid[0]["imageId"], $userid, $msg_content);
+        $msg = new Comment($key_id, $imgid, $userid, $msg_content);
 
         $db->insert_msg($msg);
 
-        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId GROUP BY C.commentId;");
+        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId 
+        and I.imageId = $imgid and U.userId = $userid GROUP BY C.commentId;");
         $msgcontent = $getMsg->fetchAll(PDO::FETCH_ASSOC);
 
         $db->disconnect();
