@@ -122,7 +122,7 @@ function load_content() {
         $userpic = $user["profilPicture"];
         $userdesc = $user["profilDesc"];
 
-        $dbtable = $db->select("SELECT I.urlImage FROM Image as I JOIN User as U on I.userIdImage = $userid GROUP BY I.urlImage");
+        $dbtable = $db->select("SELECT I.urlImage FROM Image as I JOIN User as U on I.userIdImage = U.userId WHERE U.userId = $userid GROUP BY I.urlImage");
         $images_url = $dbtable->fetchAll(PDO::FETCH_ASSOC);
    
         $db->disconnect();
@@ -139,7 +139,94 @@ function load_content() {
 
 function exit_edit() {
     if(!isset($_SESSION)) session_start();
-    unset($_SESSION["edit-image"]);
+
+    if(isset($_SESSION["edit-image"])) unset($_SESSION["edit-image"]);
+    if(isset($_SESSION["view-image"])) unset($_SESSION["view-image"]);
+
+    session_write_close();
+    header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
+    exit();
+}
+
+function img_get_src() {
+    if(!isset($_SESSION)) session_start();
+
+    include_once(__DIR__ . "../../..//src/config/config.php");
+    include_once(__DIR__ . "../../../src/database.php");
+
+    try {
+        $db = new BDD($config_db["host"], $config_db["port"], $config_db["dbname"], $config_db["user"], $config_db["pass"]);
+        $db->connect();
+
+        $username = $_SESSION["username"];
+        $image_url = "https://source.unsplash.com/".$_GET['id'];
+
+        $getUser = $db->select("SELECT U.userId FROM User as U WHERE U.pseudo = '$username'");
+        $user = $getUser->fetch(PDO::FETCH_ASSOC);
+        $userid = $user["userId"];
+
+        $dbtable = $db->select("SELECT I.imageId FROM Image as I, User as U WHERE I.userIdImage = U.userId and U.userId = $userid and I.urlImage = '$image_url';");
+        $imgid = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+
+        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId GROUP BY C.commentId;");
+        $msgcontent = $getMsg->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($msg_content);
+
+        $db->disconnect();
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+
+    $_SESSION["view-image"] = true;
+    $_SESSION["img-src"] = $_GET['id'];
+    $_SESSION["fetched-msgs"] = $msg_content;
+
+    session_write_close();
+    header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
+    exit();
+}
+
+function send_msg() {
+    if(!isset($_SESSION)) session_start();
+
+    include_once(__DIR__ . "../../..//src/config/config.php");
+    include_once(__DIR__ . "../../../src/database.php");
+
+    $msg_content = htmlspecialchars($_POST["msg-user"]);
+    $array = ["", "", "", "", "", "", "", "", "", ""];
+    $random_id = array_rand($array, 9);
+    shuffle($random_id);
+
+    try {
+        $db = new BDD($config_db["host"], $config_db["port"], $config_db["dbname"], $config_db["user"], $config_db["pass"]);
+        $db->connect();
+
+        $username = $_SESSION["username"];
+        $image_url = "https://source.unsplash.com/".$_SESSION["img-src"];
+
+        $getUser = $db->select("SELECT U.userId FROM User as U WHERE U.pseudo = '$username'");
+        $user = $getUser->fetch(PDO::FETCH_ASSOC);
+        $userid = $user["userId"];
+
+        $dbtable = $db->select("SELECT I.imageId FROM Image as I, User as U WHERE I.userIdImage = U.userId and U.userId = $userid and I.urlImage = '$image_url';");
+        $imgid = $dbtable->fetchAll(PDO::FETCH_ASSOC);
+
+        $key_id = intval(implode("", $random_id), 10);
+        $msg = new Comment($key_id, $imgid[0]["imageId"], $userid, $msg_content);
+
+        $db->insert_msg($msg);
+
+        $getMsg = $db->select("SELECT C.textComment FROM Comment as C, User as U, Image as I WHERE C.imageId = I.imageId and C.userIdComment = U.userId GROUP BY C.commentId;");
+        $msgcontent = $getMsg->fetchAll(PDO::FETCH_ASSOC);
+
+        $db->disconnect();
+
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+
+    $_SESSION["fetched-msgs"] = $msgcontent;
     session_write_close();
     header('Location: http://127.0.0.1:12001/www/index.php?p=profil');
     exit();
@@ -151,5 +238,6 @@ if(isset($_GET['do'])) {
     else if($_GET['do'] === "desc") add_description();
     else if($_GET['do'] === "add" ) add_image();
     else if($_GET['do'] === "exit") exit_edit();
-}
+    else if($_GET['do'] === 'msg') send_msg();
+}else if (isset($_GET['id'])) img_get_src();
 ?>

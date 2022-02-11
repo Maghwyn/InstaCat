@@ -1,4 +1,30 @@
 <?php 
+class Comment {
+    private $id;
+    private $imgid;
+    private $userid;
+    private $content;
+
+    function __construct($id, $imgid, $userid, $content) {
+        $this -> id = $id;
+        $this -> imgid = $imgid;
+        $this -> userid = $userid;
+        $this -> content = $content;
+    }
+
+    function getId() {
+        return $this -> id;
+    }
+
+    function getValues() {
+        return array("imageId" => $this -> imgid, 'urserIdComment' => $this -> userid, 'textComment' => $this -> content);
+    }
+
+    function name() {
+        return get_class($this);
+    }
+}
+
 class Image {
     private $id;
     private $userid;
@@ -23,60 +49,6 @@ class Image {
     function name() {
         return get_class($this);
     }
-
-    // function checkImg($imageProps) {
-    //     $errors= array();
-    //     $imgName =  $imageProps['name'];
-    //     $imgSize = $imageProps['size'];
-    //     $imgTemp = $imageProps['temp'];
-    //     $imgType = $imageProps['type'];
-    //     $extension = explode('.',$imageProps['name']);
-    //     $imgExt = strtolower(end($extension));
-    //     $extensions= array("jpeg","jpg","png");
-
-    //     if(in_array($imgExt,$extensions)=== false){
-    //         $errors[]="Choose a JPEG or PNG file.";
-    //     }
-    //     if($imgSize > 2000000){
-    //         $errors[]='Size max 2 MB';
-    //     }
-    // }
-
-    // function createFileImage($imageProps) {
-    //     $errors = $this->checkImg($imageProps);
-    //     if(sizeof($errors) > 0) return $errors;
-
-    //     $this->img_Type = strtolower(end(explode('.',$imageProps['name'])));
-    //     $this->date = date('Y-m-d');
-    //     $imgName = $this->Id_image.'.'.$this->img_Type;
-    //     move_uploaded_file($imageProps['temp'],'images/'.$imgName);
-
-    //     // $createImg = "INSERT INTO `Image` (`imageId`,`userIdImage`,`likeImage`) VALUES ('".$this->Id_image."','".$this->userId_Img."','".$this->like_Img."')";
-    //     // $db->query($createImg);
-    //     // $this->Id_image = $db->imageId;
-    // }
-
-    // function getFileImage() {
-    //     $this->Id_image = $getImages['imageId'];
-    //     $this->userId_Img = $getImages['userIdImage'];
-    //     $this->like_Img = $getImages['likeImage'];
-
-    //     // $getImg = "SELECT * FROM `Image` WHERE `imageId`=".$this->Id_image;
-    //     // $getImage = $db->query($getImg);
-    //     // $getImages = $getImage->fetch_assoc();
-    // }
-
-    // function addTag($tagImg) {
-    //     $tag = new Tag();
-    //     $tag->imageId = $this->Id_image;
-    //     $tag->tagImg = $tagImg;
-    //     $tag->create();
-    // }
-
-    // function deleteImage() {
-    //     $deleteImg = "DELETE FROM `Image` WHERE `imageId`=$this->Id_image";
-    //     $db->query($deleteImg);
-    // }
 }
 
 class User {
@@ -141,6 +113,15 @@ class BDD {
         $this -> db -> query($query);
     }
 
+    function insert_msg($obj) {
+        $id = $obj -> getId();
+        $values = $obj -> getValues();
+        $name = $obj -> name();
+
+        $query = "INSERT INTO ".$name." VALUES (".$id.", ".$values["imageId"].", ".$values["urserIdComment"].", '".$values["textComment"]."')";
+        $this -> db -> query($query);
+    }
+
     //To do
     function update($query) {
         return $this -> db -> query($query);
@@ -151,33 +132,4 @@ class BDD {
         return $this -> db -> query($query);
     }
 }
-
-/*--- How to use ---
-
-    /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
-    /!\                                                                                          /!\
-    /!\    WARNING : The BDD infos will be loaded from a config file ignored with .gitignore.    /!\
-    /!\              What you should do is as explained below.                                   /!\
-    /!\              NEVER push the BDD infos if it's not grayed out from .gitignore.            /!\
-    /!\                                                                                          /!\
-    /!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\/!\
-
-    include_once(__DIR__."BDD_infos_path -> config.php");
-    include_once(__DIR__."CLASS_path -> database.php");
-
-    try {
-        $bd = new BDD(config_db["host"], config_db["port"], config_db["dbname"], config_db["user"], config_db["pass"]);
-        $user = new User($key, $pseudo, $email, $password);
-
-        $bd -> connect();
-        $bd -> insert($user);
-        $bd -> select("query"); // For now..
-        $bd -> disconnect();
-    }
-    catch (Exception $e) {
-        die($e->getMessage());
-    }
-
-*/
-
 ?>
