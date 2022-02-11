@@ -28,7 +28,7 @@
             </div>
             <div class="message-editor-container">
                 <form class="message-editor" action="../../../www/actions/galleryManagement.php?do=msg" method="POST">
-                    <input class="message-user" name="msg-user" type="textarea" placeholder="Type your message here">
+                    <input class="message-user" name="msg-user" type="text" placeholder="Type your message here">
                     <input class="message-submit" type="submit" value="Submit">
                 </form>
             </div>

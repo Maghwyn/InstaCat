@@ -6,11 +6,17 @@
     </div>
     <div class="nav-header-btn">
         <div class="nav-links-container">
-            <div class="nav-links">
-                <a href="index.php?p=profil"><span>Profil</span></a>
-                <a href="index.php?p=account"><span>Account</span></a>
-                <a href="index.php?cmd=logout"><span>Log out</span></a>
-            </div>
+            <?php 
+                if(isset($_SESSION["token"])) {
+                    echo "
+                    <div class='nav-links'>
+                        <a href='index.php?p=profil'><span>Profil</span></a>
+                        <a href='index.php?p=account'><span>Account</span></a>
+                        <a href='index.php?cmd=logout'><span>Log out</span></a>
+                    </div>
+                    ";
+                }
+            ?>
         </div>
     </div>
 </div>
