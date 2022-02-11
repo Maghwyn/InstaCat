@@ -6,7 +6,15 @@
     <div class="profil-docker">
         <div class="profil-container">
             <div class="profil-picture-container">
-                <img class="profil-picture"src="../../../src/img/userUnknown.png">
+                <?php
+                    if(isset($_SESSION["token"])) {
+                        include_once "../www/actions/galleryManagement.php";
+                        $pic_url = get_picture();
+
+                        if($pic_url === NULL) echo "<img class='profil-picture' src='../../../src/img/userUnknown.png'>";
+                        echo "<img class='profil-picture' src='$pic_url'>";
+                    }else null;
+                ?>
             </div>
 
             <div class="profil-description-container">

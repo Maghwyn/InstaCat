@@ -144,10 +144,7 @@ class BDD {
 
     //To do
     function update($query) {
-        foreach($this -> db -> query($query) as $row) {
-            print_r($row);
-            print_r("Update");
-        }
+        return $this -> db -> query($query);
     }
 
     //To do
