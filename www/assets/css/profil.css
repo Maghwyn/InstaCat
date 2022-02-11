@@ -93,6 +93,7 @@
 
 .gallery-thumb {
     margin: 10px 10px;
+    cursor: pointer;
 }
 
 /********/
@@ -307,6 +308,10 @@
     border-radius: 0 15px 0 0;
     padding: 5px 10px;
     box-shadow: inset 0px 0px 4px 3px rgba(0, 0, 0, 0.342);
+    background-color: #a6a9be;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 

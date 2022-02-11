@@ -1,31 +1,60 @@
 .parameter-container {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .parameter {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    height: 100%;
 }
 
 .parameter-menu {
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
 }
 
 .parameter-username {
-
+    width: 100%;
 }
 
 .menu-account {
-
+    width: 100%;
+    min-height: 50px;
+    /* height: auto; */
+    background: red;
+    margin: 1px;
+    /* padding: 5px 15px; */
 }
 
 .parameter-option-docker {
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
 }
 
 .parameter-option-container {
-
+    width: 100%;
+    min-height: 100px;
+    /* height: auto; */
+    background: red;
+    margin: 1px;
+    padding: 5px 10px;
 }
 
 .option-password {
-
+    width: 95%
 }
