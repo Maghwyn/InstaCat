@@ -8,6 +8,7 @@
         </div>
         
         <div class="message-docker">
+        <div class="heart"></div>
             <div class="message-container">
                 <?php 
                     if(isset($_SESSION["token"]) && isset($_SESSION["fetched-msgs"])) {
